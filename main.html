@@ -1058,9 +1058,35 @@
       //単語テストの採点
       function calculatePoint(s) {
         const s_Array = s.split(",");
-        console.log(s_Array);
+        let point = 0;
+        const questions_Array = [];
+        for (i = 0; i < s_Array.length; i++) {
+          const question = s_Array[i].split(" ");
+          questions_Array.push(question);
+        }
+        for (let j = 0; j < questions_Array.length; j++) {
+          const spell_Array0 = questions_Array[j][0].split("");
+          const spell_Array1 = questions_Array[j][1].split("");
+          let spell_Point = 0;
+          for (let k = 0; k < spell_Array0.length; k++) {
+            if (spell_Array0[k] === spell_Array1[k]) {
+              spell_Point++;
+            }
+          }
+          if (
+            spell_Array0.length === spell_Array1.length &&
+            spell_Point === spell_Array0.length - 1
+          ) {
+            point++;
+          } else if (
+            spell_Array0.length === spell_Array1.length &&
+            spell_Point === spell_Array0.length
+          ) {
+            point += 2;
+          }
+        }
+        return point;
       }
-
       console.log(
         calculatePoint("apple aple,orange olange,grape glepe,lemon lemon")
       ); // 3
@@ -1069,7 +1095,7 @@
           "january januarry,february febrary,march march,april aplil,may may,june june,july jury,august ougust,september septenber,october october,november novembar,december dicembar"
         )
       );
-      //単語テストの採点
+      //13
     </script>
   </body>
 </html>
