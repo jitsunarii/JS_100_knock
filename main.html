@@ -1096,6 +1096,134 @@
         )
       );
       //13
+      //先生の宿題
+      function getAnswer(s) {
+        const s_Array = s.split(" ");
+        if (
+          //条件
+          isNaN(Number(s_Array[0]) + Number(s_Array[2])) === false &&
+          s_Array[1] === "+"
+        ) {
+          //戻り値
+          return Number(s_Array[0]) + Number(s_Array[2]);
+        } else if (
+          //条件
+          isNaN(Number(s_Array[0]) + Number(s_Array[2])) === false &&
+          s_Array[1] === "-"
+        ) {
+          //戻り値
+          return Number(s_Array[0]) - Number(s_Array[2]);
+        } else if (
+          //条件
+          isNaN(Number(s_Array[4]) + Number(s_Array[0])) === false &&
+          s_Array[1] === "+"
+        ) {
+          //戻り値
+          return Number(s_Array[4]) - Number(s_Array[0]);
+        } else if (
+          //条件
+          isNaN(Number(s_Array[4]) + Number(s_Array[0])) === false &&
+          s_Array[1] === "-"
+        ) {
+          //戻り値
+          return Number(s_Array[0]) - Number(s_Array[4]);
+        } else if (
+          //条件
+          isNaN(Number(s_Array[4]) + Number(s_Array[2])) === false &&
+          s_Array[1] === "+"
+        ) {
+          //戻り値
+          return Number(s_Array[4]) - Number(s_Array[2]);
+        } else if (
+          //条件
+          isNaN(Number(s_Array[4]) + Number(s_Array[2])) === false &&
+          s_Array[1] === "-"
+        ) {
+          //戻り値
+          return Number(s_Array[2]) + Number(s_Array[4]);
+        } else {
+          return "不明";
+        }
+      }
+      console.log(getAnswer("1 + 3 = x")); // 4
+      console.log(getAnswer("6 - x = 3")); // 3
+      console.log(getAnswer("x - 1 = 5")); // 6
+      console.log(getAnswer("1 - 3 = x")); //-2
+      console.log(getAnswer("6 + x = 3")); //-3
+      console.log(getAnswer("x + 1 = 5")); //4
+      //アニメの日時
+      function formatHour(d) {
+        const Anime_Array = d.split(" ");
+        console.log(Anime_Array);
+        const date_Array = Anime_Array[0].split("/");
+        const date_Number_Array = date_Array.map(Number);
+        console.log(date_Number_Array);
+        const time_Array = Anime_Array[1].split(":");
+        const time_Number_Array = time_Array.map(Number);
+        console.log(time_Number_Array);
+        console.log(("0" + 80).slice(-2));
+        console.log(date_Number_Array[1] + Math.floor(time_Array[0] / 24));
+        return (
+          ("0" + date_Number_Array[0]).slice(-2) +
+          "/" +
+          (
+            "0" +
+            (date_Number_Array[1] + Math.floor(time_Number_Array[0] / 24))
+          ).slice(-2) +
+          " " +
+          (
+            "0" +
+            (time_Number_Array[0] - 24 * Math.floor(time_Number_Array[0] / 24))
+          ).slice(-2) +
+          ":" +
+          ("0" + time_Number_Array[1]).slice(-2)
+        );
+      }
+
+      console.log(formatHour("01/27 24:30")); // 01/28 00:30
+      console.log(formatHour("02/31 73:59")); // 02/34 01:59
+      console.log(formatHour("12/31 00:00")); // 12/31 00:00
+      console.log(formatHour("12/31 25:01")); // 12/32 01:01
+      //コーヒー割引キャンペーン
+      function getCostForFreeCoffee(s) {
+        const s_Array = s.split(" ");
+        const s_Number_Array = s_Array.map(Number);
+        const Answer_Array = [];
+        let num = 0;
+        while (
+          Math.floor(
+            s_Number_Array[0] * Math.pow((100 - s_Number_Array[1]) / 100, num)
+          ) > 0
+        ) {
+          let Answer = Math.floor(
+            s_Number_Array[0] * Math.pow((100 - s_Number_Array[1]) / 100, num)
+          );
+          Answer_Array.push(Answer);
+          num++;
+        }
+        return Answer_Array.reduce(function (a, b) {
+          return a + b;
+        });
+      }
+
+      console.log(getCostForFreeCoffee("300 50")); // 596
+      console.log(getCostForFreeCoffee("1000 99")); // 1010
+
+      //エレベーター
+      function getElevatorMove(s) {
+        const s_Array = s.split(" ").map(Number);
+        const first_Elev = Math.abs(s_Array[0] - 1);
+        const Answer_Array = [first_Elev];
+        for (let i = 0; i < s_Array.length - 1; i++) {
+          Answer_Array.push(Math.abs(s_Array[i + 1] - s_Array[i]));
+        }
+        return Answer_Array.reduce(function (a, b) {
+          return a + b;
+        });
+      }
+
+      console.log(getElevatorMove("3 1 4")); // 7
+      console.log(getElevatorMove("17 28 11 62 64 4 7 17")); // 170
     </script>
   </body>
 </html>
