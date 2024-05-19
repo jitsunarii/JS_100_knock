@@ -1226,6 +1226,41 @@
       console.log(isSingleNumber("11 1")); // Yes
       console.log(isSingleNumber("11 11")); // Yes
       console.log(isSingleNumber("12 11")); //  No
+
+      //花見の準備
+      function judgeCheapSheet(s) {
+        const s_Array = s.split(",");
+        const fir_s_Array = s_Array[0].split(" ").map(Number);
+        const sec_s_Array = s_Array[1].split(" ").map(Number);
+        const fir_price = Math.round(
+          fir_s_Array[2] / (fir_s_Array[0] * fir_s_Array[1])
+        );
+        const sec_price = Math.round(
+          sec_s_Array[2] / (sec_s_Array[0] * sec_s_Array[1])
+        );
+        if (fir_price === sec_price) {
+          return "DRAW";
+        }
+        if (fir_price > sec_price) {
+          return s_Array[1];
+        } else {
+          return s_Array[0];
+        }
+      }
+      console.log(judgeCheapSheet("5 18 1000,12 21 3000")); // 5 18 1000
+      console.log(judgeCheapSheet("5 5 1800,5 10 3600")); // DRAW
+      //下一桁はいくつ
+      function getLastNumber(s) {
+        const s_Array = s.split(" ").map(Number);
+        const sum = s_Array.reduce(function (a, b) {
+          return a + b;
+        });
+        const sum_Array = String(sum).split("");
+        return sum_Array[sum_Array.length - 1];
+      }
+
+      console.log(getLastNumber("1 9 8 9 12")); // 9
+      console.log(getLastNumber("1 1 1 1 6")); // 0
     </script>
   </body>
 </html>
