@@ -1200,6 +1200,32 @@
 
       console.log(getElevatorMove("3 1 4")); // 7
       console.log(getElevatorMove("17 28 11 62 64 4 7 17")); // 170
+
+      //ゾロ目の日付
+      //月→1,2,11, 日→1,2,11,22
+      function isSingleNumber(s) {
+        const s_Array = s.split(" ").map(Number);
+        const month = s_Array[0];
+        const day = s_Array[1];
+        if (month === 1 || month === 11) {
+          if (day === 1 || day === 11) {
+            return "Yes";
+          } else {
+            return "No";
+          }
+        } else if (month === 2) {
+          if (day === 2 || day === 22) {
+            return "Yes";
+          } else {
+            return "No";
+          }
+        } else {
+          return "No";
+        }
+      }
+      console.log(isSingleNumber("11 1")); // Yes
+      console.log(isSingleNumber("11 11")); // Yes
+      console.log(isSingleNumber("12 11")); //  No
     </script>
   </body>
 </html>
