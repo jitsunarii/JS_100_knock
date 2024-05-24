@@ -1261,6 +1261,147 @@
 
       console.log(getLastNumber("1 9 8 9 12")); // 9
       console.log(getLastNumber("1 1 1 1 6")); // 0
+
+      //門松の作成
+      function getAllLength(n) {
+        const Answer = n + Math.floor(n / 3) * 5 + Math.floor(n / 3) * 7;
+        return Answer;
+      }
+      console.log(getAllLength(60)); // 300
+      console.log(getAllLength(9)); // 45
+      //禁止ワード
+      function hasNgWord(s) {
+        const s_Array = s.split(" ");
+        console.log(s_Array);
+        const word_NG = s_Array[0];
+        console.log(word_NG);
+        const question = s_Array[1];
+        console.log(question);
+        const check_NG_Array = [];
+        for (let i = 0; i + 5 < question.length; i++) {
+          const word_Check = question.substr(i, 6);
+          console.log(word_Check);
+          if (word_NG === word_Check) {
+            check_NG_Array.push(word_Check);
+            console.log(check_NG_Array);
+          }
+        }
+        if (check_NG_Array.length !== 0) {
+          return "NG";
+        } else {
+          return question;
+        }
+      }
+
+      console.log(hasNgWord("ngword thisisngword")); // NG
+      console.log(hasNgWord("ngword gsprogrammig")); // gsprogramming
+      //洗濯物と砂ぼこり
+      function canDry(s) {
+        const s_Array = s.split(" ");
+        const number_Temp = Number(s_Array[0]);
+        const number_Hum = Number(s_Array[1]);
+        if (number_Temp >= 25 || 40 >= number_Hum) {
+          return "Yes";
+        } else {
+          return "No";
+        }
+      }
+
+      console.log(canDry("25 50")); // Yes
+      console.log(canDry("10 20")); // Yes
+      console.log(canDry("20 50")); // No
+      //カード並べ
+      function getBestScore(s) {
+        const s_Array = s.split(" ");
+        console.log(s_Array);
+        const s_Number_Array = s_Array.map(Number);
+        console.log(s_Number_Array);
+        const s_Sort_Array = s_Number_Array.sort(function compareFunc(a, b) {
+          return b - a;
+        });
+        console.log(s_Sort_Array);
+        const sum_Max =
+          s_Sort_Array[0] * 10 +
+          s_Sort_Array[2] +
+          s_Sort_Array[1] * 10 +
+          s_Sort_Array[3];
+        return sum_Max;
+      }
+
+      console.log(getBestScore("2 9 3 8")); // 175
+      console.log(getBestScore("7 8 7 7")); // 164
+      //ログのフィルター
+      function filterLogByKeyword(s) {
+        const s_Change = s.replace(/,/, " ");
+        const s_Array = s_Change.split(" ");
+        const word_Check = s_Array[0];
+        const Answer_Array = [];
+        let count = 0;
+        for (let i = 1; i < s_Array.length; i++) {
+          let count = 0;
+          for (let j = 0; j < s_Array[i].length - 1; j++) {
+            const check_Element = s_Array[i].substr(j, word_Check.length);
+            if (check_Element === word_Check && count === 0) {
+              Answer_Array.push(s_Array[i]);
+              count++;
+            }
+          }
+        }
+        if (Answer_Array.length !== 0) {
+          return Answer_Array.join(" ");
+        } else {
+          return "None";
+        }
+      }
+      console.log(
+        filterLogByKeyword(
+          "gs,gsacademytokyo javascript gsacademyfukuoka gsbase"
+        )
+      ); // gsacademytokyo gsacademyfukuoka gsbase
+      console.log(
+        filterLogByKeyword("script,javascript typescript googleappscript java")
+      ); // javascript typescript googleappscript
+      console.log(
+        filterLogByKeyword(
+          "dio,Giorno Bucciarati Abbacchio Mista Narancia Fugo Trish"
+        )
+      ); // None
+      //メールアドレス認証
+      function isValidEmail(s) {
+        const s_Change = s.replace(/ /, "@");
+        const s_Array = s_Change.split("@");
+        if (s_Array.length === 2 && s_Array[0].length !== 0) {
+          if (s_Array[1].split(".").length === 2) {
+            return "true";
+          } else {
+            return "false";
+          }
+        } else {
+          return "false";
+        }
+      }
+
+      console.log(isValidEmail("ccc@aaa.com")); // true
+      console.log(isValidEmail("c@cc@aaa.com")); // false
+      console.log(isValidEmail("cc c@aaa.com")); // false
+      console.log(isValidEmail("cc.c@aaacom")); // false
+      console.log(isValidEmail("cc.c@aaa.com")); // true
+      console.log(isValidEmail("@aaa.com")); // false
+      //フィボナッチ数列
+      function getFibonacciNth(n) {
+        const result = [0, 1];
+        for (let i = 2; i <= n; i++) {
+          const a = result[i - 1];
+          const b = result[i - 2];
+          result.push(a + b);
+        }
+        return result[n];
+      }
+
+      console.log(getFibonacciNth(1)); // 1
+      console.log(getFibonacciNth(5)); // 5
+      console.log(getFibonacciNth(10)); // 55
+      console.log(getFibonacciNth(90)); // 2880067194370816120
     </script>
   </body>
 </html>
