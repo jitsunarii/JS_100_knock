@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function compareNumbers(a, b) {
+        return a === b ? "eq" : Math.max(a, b);
+      }
+
+      console.log(compareNumbers(2, 5)); // 5
+      console.log(compareNumbers(10, 9)); // 10
+      console.log(compareNumbers(2, 2)); // eq
+
+      function convertToMm(n, s) {
+        const units = { km: 1000000, m: 1000, cm: 10 };
+        return n * units[s];
+      }
+
+      console.log(convertToMm(1, "km")); // 1000000
+      console.log(convertToMm(54, "km")); // 54000000
+      console.log(convertToMm(2, "cm")); // 20
+
+      function oddOrEven(n) {
+        return n % 2 === 0 ? "even" : "odd";
+      }
+
+      console.log(oddOrEven(4)); // even
+      console.log(oddOrEven(5)); // odd
+      console.log(oddOrEven(2)); // even
+
+      function calculateYears(a, b) {
+        return b - a;
+      }
+
+      console.log(calculateYears(1990, 2014)); // 24
+      console.log(calculateYears(1999, 2000)); // 1
+      console.log(calculateYears(794, 1192)); // 398
+
+      function judgeTh(c) {
+        return c.charCodeAt() - "A".charCodeAt() + 1;
+      }
+
+      console.log(judgeTh("C")); // 3
+      console.log(judgeTh("X")); // 24
+      function getAbs(n) {
+        return Math.abs(n);
+      }
+
+      console.log(getAbs(-10)); // 10
+      console.log(getAbs(15)); // 15
+      console.log(getAbs(0)); // 0
+      function getQuotientAndSurplus(m, n) {
+        return `${Math.floor(m / n)} ${m % n}`;
+      }
+
+      console.log(getQuotientAndSurplus(10, 3)); // 3 1
+      console.log(getQuotientAndSurplus(12, 14)); // 0 12
+
+      function convertToUppercase(s) {
+        return s.toUpperCase();
+      }
+
+      console.log(convertToUppercase("gsacademy")); // GSACADEMY
+      console.log(convertToUppercase("abcdefghijklmnopqrstuvwxyz")); // ABCDEFGHIJKLMNOPQRSTUVWXYZ
+      function createList(n) {
+        return Array.from({ length: 9 }, (_, i) => (i + 1) * n).join(" ");
+      }
+
+      console.log(createList(2)); // 2 4 6 8 10 12 14 16 18
+      console.log(createList(3)); // 3 6 9 12 15 18 21 24 27
+      console.log(createList(5)); // 5 10 15 20 25 30 35 40 45
+      function createSequence(m, n) {
+        return Array.from({ length: 10 }, (_, i) => i * n + m).join(" ");
+      }
+
+      console.log(createSequence(3, 3)); // 3 6 9 12 15 18 21 24 27 30
+      console.log(createSequence(5, 10)); // 5 15 25 35 45 55 65 75 85 95
+      console.log(createSequence(1, 3)); // 1 4 7 10 13 16 19 22 25 28
+
+      function countDown(n) {
+        return Array.from({ length: n }, (_, i) => n - i).join(" ");
+      }
+
+      console.log(countDown(3)); // 3 2 1
+      console.log(countDown(10)); // 10 9 8 7 6 5 4 3 2 1
+
+      function getOneToN(s, n) {
+        return s.substr(0, n);
+      }
+
+      console.log(getOneToN("aabbccdd", 5)); // aabbc
+      console.log(getOneToN("gsacademyfukuoka", 9)); // gsacademy
+
+      function getMaxAndMin(s) {
+        return `${Math.max(...s.split(" ").map(Number))} ${Math.min(
+          ...s.split(" ").map(Number)
+        )}`;
+      }
+
+      console.log(getMaxAndMin("9 12 3 6 10")); // 12 3
+      console.log(getMaxAndMin("1 1 2 2 3")); // 3 1
+      console.log(getMaxAndMin("5 9 -1 10 2")); // 10 -1
+
+      function getNthChar(s, n) {
+        return s.charAt(n - 1);
+      }
+
+      console.log(getNthChar("gsacademy", 3)); // a
+      console.log(getNthChar("abcdefg", 5)); // e
+      console.log(getNthChar("qwertyu", 1)); // q
+
+      function isEqual(s, t) {
+        return s === t ? "Yes" : "No";
+      }
+
+      console.log(isEqual("gsacademy", "gsacademy")); // Yes
+      console.log(isEqual("JavaScript", "ジャバスク")); // No
+      console.log(isEqual("aaaaa", "aaaaaa")); // No
+
+      function getNumberOfA(s) {
+        const arr = s.match(/A/g) || [];
+        console.log(arr);
+        return arr.length;
+      }
+
+      console.log(getNumberOfA("GSACADEMY")); // 2
+      console.log(getNumberOfA("aAaAaA")); // 3
+      console.log(getNumberOfA("JavaScript")); // 0
+
+      function getSurfaceArea(a) {
+        return a * a * 6;
+      }
+
+      console.log(getSurfaceArea(4)); // 96
+      console.log(getSurfaceArea(1)); // 6
+
+      function getAngle(a, b) {
+        return 180 - a - b;
+      }
+
+      console.log(getAngle(30, 90)); // 60
+      console.log(getAngle(45, 45)); // 90
+
+      function zeroPadding3(n) {
+        return n.toString().padStart(3, "0");
+      }
+
+      console.log(zeroPadding3(98)); // 098
+      console.log(zeroPadding3(2)); // 002
+
+      function getPaidHolidays(s) {
+        return s.split(" ").filter((e) => e === "no").length;
+      }
+
+      console.log(getPaidHolidays("yes yes yes yes no no yes")); // 2
+      console.log(getPaidHolidays("yes no no no no no yes")); // 5
+
+      function getSum(n) {
+        return ((n + 1) * n) / 2;
+      }
+
+      console.log(getSum(10)); // 55
+      console.log(getSum(99)); // 4950
+
+      function getNumberOfDigits(n) {
+        return n.toString().split("").length;
+      }
+
+      console.log(getNumberOfDigits(100)); // 3
+      console.log(getNumberOfDigits(114514)); // 6
+
+      function getBackSide(n) {
+        return 7 - n;
+      }
+
+      console.log(getBackSide(1)); // 6
+      console.log(getBackSide(3)); // 4
+
+      function convertToSeconds(n) {
+        return n * 60;
+      }
+
+      console.log(convertToSeconds(16)); // 960
+      console.log(convertToSeconds(3)); // 180
+
+      function getTimeUntilFull(n) {
+        return 100 - n;
+      }
+
+      console.log(getTimeUntilFull(70)); // 30
+      console.log(getTimeUntilFull(25)); // 75
+      function getInitialFromName(s) {
+        const [first, family] = s.split(" ");
+        return `${first.split("")[0]}.${family.split("")[0]}`;
+      }
+
+      console.log(getInitialFromName("Dio Brando")); // D.B
+      console.log(getInitialFromName("Pannacotta Fugo")); // P.F
+      console.log(getInitialFromName("Gyro Zeppeli")); // G.Z
+
+      function choiceOfGod(n) {
+        return 21 % n === 0 ? n : 21 % n;
+      }
+
+      console.log(choiceOfGod(4)); // 1
+      console.log(choiceOfGod(3)); // 3
+
+      function formatYMD(s) {
+        return s
+          .split(" ")
+          .map((e, i) => e.padStart([4, 2, 2][i], "0"))
+          .join("/");
+      }
+
+      console.log(formatYMD("2021 1 1")); // 2021/01/01
+      console.log(formatYMD("2020 10 10")); // 2020/10/10
+      console.log(formatYMD("794 11 29")); // 0794/11/29
+
+      function convertAtToAtMark(s) {
+        return s.replace(/at/g, "@");
+      }
+
+      console.log(convertAtToAtMark("gsatcodeatquantity")); // gs@code@quantity
+      console.log(convertAtToAtMark("atatatjojoatatat")); // @@@jojo@@@
+
+      function getNeedBox(m, n) {
+        return Math.ceil(n / m);
+      }
+
+      console.log(getNeedBox(7, 30)); // 5
+      console.log(getNeedBox(3, 100)); // 34
+      console.log(getNeedBox(7, 5)); // 1
+
+      function canStoreBooks(s) {
+        const [sum, height, width] = s.split(" ").map(Number);
+        return height * width >= sum ? "OK" : "NG";
+      }
+
+      console.log(canStoreBooks("400 5 85")); // OK
+      console.log(canStoreBooks("500 4 70")); // NG
+
+      function calculateNumberOfGames(n) {
+        return (n * (n - 1)) / 2;
+      }
+
+      console.log(calculateNumberOfGames(4)); // 6
+      console.log(calculateNumberOfGames(10)); // 45
+
+      function daysOfGoOut(s) {
+        return s
+          .split(" ")
+          .map(Number)
+          .filter((e) => e <= 30).length;
+      }
+
+      console.log(daysOfGoOut("13 0 15 30 89 100 30")); // 5
+      console.log(daysOfGoOut("0 14 18 22 0 2 4")); // 7
+      console.log(daysOfGoOut("99 99 99 99 99 99 99")); // 0
+
+      function isEquilateralTriangle(s) {
+        const [a, b, c] = s.split(" ").map(Number);
+        return a === b && b === c ? "yes" : "No";
+      }
+
+      console.log(isEquilateralTriangle("10 10 10")); // yes
+      console.log(isEquilateralTriangle("3 4 5")); // No
+
+      function showWeather(n) {
+        return n <= 30 ? "sunny" : 71 <= n ? "rainy" : "cloudy";
+      }
+
+      console.log(showWeather(31)); // cloudy
+      console.log(showWeather(2)); // sunny
+      console.log(showWeather(71)); // rainy
+
+      function greet(s1, s2) {
+        return s2 === "M" ? `Hi,Mr.${s1}` : `Hi,Ms.${s1}`;
+      }
+
+      console.log(greet("Stroheim", "M")); // Hi, Mr.Stroheim
+      console.log(greet("Trish", "F")); // Hi, Ms.Trish
+
+      function convertNumberToAlphabet(s) {
+        const units = { 5: "A", 4: "B", 3: "C", 2: "D", 1: "E" };
+        return s
+          .split("")
+          .map((e) => units[e])
+          .join("");
+      }
+
+      console.log(convertNumberToAlphabet("53342")); // ACCBD
+      console.log(convertNumberToAlphabet("22222")); // DDDDD
+      console.log(convertNumberToAlphabet("51111")); // AEEEE
+
+      function getNumberOfSteps(s) {
+        return Math.max(...s.split(" ").map(Number));
+      }
+
+      console.log(getNumberOfSteps("1 2 5")); // 5
+      console.log(getNumberOfSteps("2 5 5")); // 5
+      console.log(getNumberOfSteps("1 2 1")); // 2
+
+      function getInterval(s) {
+        const arr = s.split(" ").map(Number);
+        const s_arr = [];
+        for (let i = 0; i < arr.length - 1; i++) {
+          s_arr.push(arr[i + 1] - arr[i]);
+        }
+        return s_arr.join(" ");
+      }
+
+      console.log(getInterval("5 8 19 25 31")); // 3 11 6 6
+      console.log(getInterval("2 3 7 9 28")); // 1 4 2 19
+
+      function getAutumn(s) {
+        return s.replace(/noaki/g, "");
+      }
+
+      console.log(getAutumn("codenoaki")); // code
+      console.log(getAutumn("dokusyo")); // dokusyo
+      console.log(getAutumn("javascriptnoaki")); // javascript
+
+      function getNumberOfDango(s) {
+        const [a, b] = s
+          .split(" ")
+          .map(Number)
+          .map((n) => (n >= 5 ? (n = 5) : n));
+        return a + b;
+      }
+
+      console.log(getNumberOfDango("3 50")); // 8
+      console.log(getNumberOfDango("100 500")); // 10
+      console.log(getNumberOfDango("2 4")); // 6
+      function isReadyForSummer(s) {
+        return s.split(" ").filter((e) => e === "S").length >= 5 ? "OK" : "NG";
+      }
+
+      console.log(isReadyForSummer("W W W W W S S S S S")); // OK
+      console.log(isReadyForSummer("S S W W S W W W W W")); // NG
+      console.log(isReadyForSummer("W S S S S S S S S W")); // OK
+
+      function getNumberOfHuman(n) {
+        return (n * (n + 1)) / 2;
+      }
+
+      console.log(getNumberOfHuman(4)); // 10
+      console.log(getNumberOfHuman(10)); // 55
+      console.log(getNumberOfHuman(50)); // 1275
+
+      function candyOrChocolate(s) {
+        return s === "chocolate" || s === "candy" ? "Thanks!" : "No!";
+      }
+
+      console.log(candyOrChocolate("chocolate")); // Thanks!
+      console.log(candyOrChocolate("candy")); // Thanks!
+      console.log(candyOrChocolate("pannacotta")); // No!
+
+      function canParty(s) {
+        return s.length >= 11 ? "OK" : 11 - s.length;
+      }
+
+      console.log(canParty("11111111111")); // OK
+      console.log(canParty("1111")); // 7
+      console.log(canParty("1111111111111111")); // OK
+
+      function bestCopy(s) {
+        return `Best in ${s}`;
+      }
+
+      console.log(bestCopy("a decade")); // Best in a decade
+      console.log(bestCopy("the world")); // Best in the world
+      console.log(bestCopy("history ever")); // Best in history ever
+
+      function probabilityGetSSR(n, t) {
+        return Math.round((1 - ((100 - n) / 100) ** t) * 100);
+      }
+
+      console.log(probabilityGetSSR(1, 100)); // 63
+      console.log(probabilityGetSSR(1.5, 70)); // 65
+      console.log(probabilityGetSSR(1, 200)); // 87
+
+      function getStartTimeForCook(s, t) {
+        const [hour, min] = s.split(":").map(Number);
+        const TIME = hour * 60 + min - t;
+        return `${Math.floor(TIME / 60)
+          .toString()
+          .padStart(2, "0")}:${(TIME % 60).toString().padStart(2, "0")}`;
+      }
+
+      console.log(getStartTimeForCook("19:00", 90)); // 17:30
+      console.log(getStartTimeForCook("20:00", 20)); // 19:40
+      console.log(getStartTimeForCook("20:30", 80)); // 19:10
+
+      function convertToUppercase(s) {
+        const Answer = s.replace(/[A-Za-z0-9]/g, function (a) {
+          return String.fromCharCode(a.charCodeAt(0) + 0xfee0);
+        });
+        return Answer;
+      }
+
+      console.log(convertToUppercase("1234567")); // １２３４５６７
+      console.log(convertToUppercase("1111111")); // １１１１１１１
+      console.log(convertToUppercase("1145140")); // １１４５１４０
+
+      function fireEmployees(employees, fireEmployees) {
+        return employees
+          .split(" ")
+          .filter((e) => !fireEmployees.split(" ").includes(e))
+          .join(" ");
+      }
+
+      console.log(
+        fireEmployees(
+          "Jotaro Joseph Avdol Polnareff Tenmei Iggy",
+          "Avdol Tenmei Iggy"
+        )
+      ); // Jotaro Joseph Polnareff
+      console.log(
+        fireEmployees(
+          "Giorno Bucciarati Abbacchio Mista Narancia Fugo Trish",
+          "Bucciarati Abbacchio Narancia"
+        )
+      ); // Giorno Mista Fugo Trish
+      console.log(
+        fireEmployees(
+          "Jolyne Ermes Emporio F・F Weather Anasui",
+          "Jolyne Ermes F・F Weather Anasui"
+        )
+      ); // Emporio
+
+      function outputProfile(obj) {
+        return Object.keys(obj).length !== 3
+          ? "情報がありません"
+          : obj.gender === "male"
+          ? `彼の名前は${obj.name}で${obj.age}歳です`
+          : `彼女の名前は${obj.name}で${obj.age}歳です`;
+      }
+      const taro = {
+        name: "Taro",
+        age: 25,
+        gender: "male",
+      };
+
+      console.log(outputProfile(taro)); //彼の名前はTaroで25歳です
+
+      const hanako = {
+        name: "Hanako",
+        age: 30,
+        gender: "female",
+      };
+
+      console.log(outputProfile(hanako)); // 彼女の名前はHanakoで30歳です
+
+      const hatena = {
+        name: "hatena",
+        age: 20,
+      };
+
+      console.log(outputProfile(hatena)); //  情報がありません
+
+      function combineArray(a, b) {
+        return [...a, ...b];
+      }
+
+      const abc = ["a", "b", "c"];
+      const def = ["d", "e", "f"];
+
+      console.log(combineArray(abc, def)); //["a", "b", "c", "d", "e", "f"]
+
+      const gen = ["米", "トイレットペーパー", "ちゅーる", "酒"];
+      const yui = ["洗剤", "肉", "ブロッコリー"];
+
+      console.log(combineArray(gen, yui)); // ["米", "トイレットペーパー", "ちゅーる", "酒", "洗剤", "肉", "ブロッコリー"]
+
+      function createBadScoreArray(a) {
+        return a
+          .split(" ")
+          .map(Number)
+          .sort((a, b) => a - b)
+          .join(" ");
+      }
+
+      console.log(createBadScoreArray("15 8 9 100 26 1")); // 1 8 9 15 26 100
+
+      console.log(createBadScoreArray("50 15 89 5 61 2 44")); // 2 5 15 44 50 61 89
+      function containStrings(str1, str2) {
+        return str1.includes(str2);
+      }
+
+      const a = "あけましておめでとうございます";
+      const b = "おめでとう";
+
+      console.log(containStrings(a, b)); // true
+
+      const c = "Love the life you live. Live the life you love.";
+      const d = "best";
+
+      console.log(containStrings(c, d)); // false
+
+      function createObject(a, b) {
+        const object = { name: a, age: b };
+        return object;
+      }
+
+      console.log(createObject("ichiro", 20)); // { name: "ichiro", age: 20, }
+      console.log(createObject("momoko", 22)); // { name: "momoko", age: 22, }
+
+      function randomGreet(a, b, c) {
+        const regex = /^[ぁ-ん]+$/u;
+        return regex.test(a + b + c)
+          ? `${a}or${b}or${c}`
+          : `${a} or ${b} or ${c}`;
+      }
+      console.log(randomGreet("おはよう", "こんにちは", "こんばんは")); // おはようorこんにちはorこんばんは
+      console.log(randomGreet("Hi!", "Hello!", "Bye!")); // Hi! or Hello! or Bye!
+
+      function sortObject(obj) {
+        return obj
+          .sort((a, b) => a.id - b.id)
+          .map((o) => `${o.id}:${o.name}(${o.age})`)
+          .join(",");
+      }
+
+      const objectArray1 = [
+        {
+          id: 8,
+          name: "Emily",
+          age: 29,
+        },
+        {
+          id: 1,
+          name: "John",
+          age: 22,
+        },
+        {
+          id: 4,
+          name: "Bob",
+          age: 30,
+        },
+      ];
+
+      console.log(sortObject(objectArray1)); // 1:John(22),4:Bob(30),8:Emily(29)
+
+      const objectArray2 = [
+        {
+          id: 10,
+          name: "taro",
+          age: 29,
+        },
+        {
+          id: 112,
+          name: "hanako",
+          age: 22,
+        },
+        {
+          id: 40,
+          name: "pochi",
+          age: 3,
+        },
+      ];
+
+      console.log(sortObject(objectArray2)); // 10:taro(29),40:pochi(3),112:hanako(22)
+
+      function createNameArray(array) {
+        return array.sort((a, b) => a.age - b.age).map((e) => e.name);
+      }
+
+      const objectArray3 = [
+        {
+          id: 8,
+          name: "Emily",
+          age: 29,
+        },
+        {
+          id: 1,
+          name: "John",
+          age: 22,
+        },
+        {
+          id: 4,
+          name: "Bob",
+          age: 30,
+        },
+      ];
+
+      console.log(createNameArray(objectArray3)); // ["John", "Emily", "Bob"]
+
+      const objectArray4 = [
+        {
+          id: 10,
+          name: "taro",
+          age: 29,
+        },
+        {
+          id: 112,
+          name: "hanako",
+          age: 22,
+        },
+        {
+          id: 40,
+          name: "pochi",
+          age: 3,
+        },
+      ];
+      console.log(createNameArray(objectArray4)); // ["pochi", "hanako", "taro"]
+      function filterUnder25Array(array) {
+        return array.filter((a) => a.age <= 25).map((e) => e.id);
+      }
+
+      const objectArray5 = [
+        {
+          id: 8,
+          name: "Emily",
+          age: 29,
+        },
+        {
+          id: 1,
+          name: "John",
+          age: 22,
+        },
+        {
+          id: 4,
+          name: "Bob",
+          age: 30,
+        },
+      ];
+
+      console.log(filterUnder25Array(objectArray5)); // [1]
+
+      const objectArray6 = [
+        {
+          id: 10,
+          name: "taro",
+          age: 29,
+        },
+        {
+          id: 112,
+          name: "hanako",
+          age: 22,
+        },
+        {
+          id: 40,
+          name: "pochi",
+          age: 3,
+        },
+      ];
+
+      console.log(filterUnder25Array(objectArray6)); // [112, 40]
+
+      function canTakeThis(arr) {
+        return 114514 >= arr.reduce((a, b) => a + b.price * b.count, 0)
+          ? "true"
+          : "false";
+      }
+      const tarosCart = [
+        {
+          id: 8,
+          name: "Yoich",
+          price: 5800,
+          count: 2,
+        },
+        {
+          id: 1,
+          name: "Yamasaki30",
+          price: 3000000,
+          count: 1,
+        },
+        {
+          id: 4,
+          name: "Chita",
+          price: 3600,
+          count: 1,
+        },
+      ];
+
+      console.log(canTakeThis(tarosCart)); // false
+
+      const hanakosCart = [
+        {
+          id: 10,
+          name: "ひまわり",
+          price: 280,
+          count: 3,
+        },
+        {
+          id: 112,
+          name: "かすみ草",
+          price: 220,
+          count: 2,
+        },
+        {
+          id: 40,
+          name: "ガーベラ",
+          price: 110,
+          count: 5,
+        },
+      ];
+      console.log(canTakeThis(hanakosCart)); // true
+
+      function divinationCheat(s) {
+        return s !== "J J" ? s : "J Q";
+      }
+
+      console.log(divinationCheat("K Q")); // K Q
+      console.log(divinationCheat("J Q")); // J Q
+      console.log(divinationCheat("J J")); // J Q
+
+      function placeCount(s) {
+        const [a, b] = s.split(" ").map(Number);
+        return a - b;
+      }
+
+      console.log(placeCount("3 4")); // -1
+      console.log(placeCount("80 44")); // 36
+
+      function deathWhiteDay(n) {
+        return n !== 0 ? n * 3 : 1;
+      }
+
+      console.log(deathWhiteDay(1)); // 3
+      console.log(deathWhiteDay(99)); // 297
+      console.log(deathWhiteDay(0)); // 1
+
+      function convertLeet(s) {
+        const Leet = { A: "4", E: "3", G: "6", I: "1", O: "0", S: "5", Z: "2" };
+        return s
+          .split("")
+          .map((a) => Leet[a] || a)
+          .join("");
+      }
+
+      console.log(convertLeet("ALANTURING")); // 4L4NTUR1N6
+      console.log(convertLeet("GSACADEMY")); // 654C4D3MY
+
+      function isPerfectNumber(s) {
+        const getDivisors = (num) => {
+          const divisors = [];
+          for (let i = 1; i <= Math.sqrt(num); i++) {
+            if (num % i === 0) {
+              divisors.push(i);
+              if (i !== num / i) divisors.push(num / i);
+            }
+          }
+          return divisors;
+        };
+        return s
+          .split(" ")
+          .map(Number)
+          .map((n) => {
+            const sum = getDivisors(n).reduce((a, b) => a + b, -n);
+            return sum === n
+              ? "perfect"
+              : Math.abs(sum - n) === 1
+              ? "nearly"
+              : "neither";
+          })
+          .join(" ");
+      }
+
+      console.log(isPerfectNumber("28 16 777")); // perfect nearly neither
+      console.log(isPerfectNumber("3 4 5 6")); // neither nearly neither perfect
+
+      function calculatePoint(input) {
+        return input.split(",").reduce((total, pair) => {
+          const [Q, A] = pair.split(" ");
+          return Q.length !== A.length
+            ? total
+            : Q === A
+            ? (total += 2)
+            : [...Q].filter((a, i) => a === A[i]).length === [...Q].length - 1
+            ? (total += 1)
+            : total;
+        }, 0);
+      }
+
+      console.log(
+        calculatePoint("apple aple,orange olange,grape glepe,lemon lemon")
+      ); // 3
+      console.log(
+        calculatePoint(
+          "january januarry,february febrary,march march,april aplil,may may,june june,july jury,august ougust,september septenber,october october,november novembar,december dicembar"
+        )
+      ); // 13
+      function getAnswer(math) {
+        let [num1, mark, num2, eq, num3] = math.split(" ");
+        return num1 === "x" && mark === "+"
+          ? Number(num3) - Number(num2)
+          : num1 === "x" && mark === "-"
+          ? Number(num2) + Number(num3)
+          : num2 === "x" && mark === "+"
+          ? Number(num3) - Number(num1)
+          : num2 === "x" && mark === "-"
+          ? Number(num1) - Number(num3)
+          : num3 === "x" && mark === "+"
+          ? Number(num1) + Number(num2)
+          : num3 === "x" && mark === "-"
+          ? Number(num1) - Number(num2)
+          : "false";
+      }
+
+      console.log(getAnswer("1 + 3 = x")); // 4
+      console.log(getAnswer("6 - x = 3")); // 3
+      console.log(getAnswer("x - 1 = 5")); // 6
+    </script>
+  </body>
+</html>

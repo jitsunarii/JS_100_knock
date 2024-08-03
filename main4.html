@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //数の比較
+      function compareNumbers(a, b) {
+        if (a === b) {
+          return "eq";
+        } else {
+          return Math.max(a, b);
+        }
+      }
+
+      console.log(compareNumbers(2, 5)); // 5
+      console.log(compareNumbers(10, 9)); // 10
+      console.log(compareNumbers(2, 2)); // eq
+      //単位の計算
+      function convertToMm(n, s) {
+        const Tag = {
+          km: 1000000,
+          m: 1000,
+          cm: 10,
+        };
+        return n * Tag[s];
+      }
+
+      console.log(convertToMm(1, "km")); // 1000000
+      console.log(convertToMm(54, "km")); // 54000000
+      console.log(convertToMm(2, "cm")); // 20
+
+      //奇数か偶数か
+      function oddOrEven(n) {
+        return n % 2 === 0 ? "even" : "odd";
+      }
+
+      console.log(oddOrEven(4)); // even
+      console.log(oddOrEven(5)); // odd
+      console.log(oddOrEven(2)); // even
+
+      //西暦の計算
+      function calculateYears(a, b) {
+        return b - a;
+      }
+
+      console.log(calculateYears(1990, 2014)); // 24
+      console.log(calculateYears(1999, 2000)); // 1
+      console.log(calculateYears(794, 1192)); // 398
+
+      //何番目？
+      function judgeTh(c) {
+        return c.charCodeAt(0) - "A".charCodeAt(0) + 1;
+      }
+
+      console.log(judgeTh("C")); // 3
+      console.log(judgeTh("X")); // 24
+
+      //絶対値
+
+      function getAbs(n) {
+        return Math.abs(n);
+      }
+
+      console.log(getAbs(-10)); // 10
+      console.log(getAbs(15)); // 15
+      console.log(getAbs(0)); // 0
+
+      //割り算
+
+      function getQuotientAndSurplus(m, n) {
+        return `${Math.floor(m / n)} ${m % n}`;
+      }
+
+      console.log(getQuotientAndSurplus(10, 3)); // 3 1
+      console.log(getQuotientAndSurplus(12, 14)); // 0 12
+
+      //小文字を大文字に
+      function convertToUppercase(s) {
+        return s.toUpperCase();
+      }
+
+      console.log(convertToUppercase("gsacademy")); // GSACADEMY
+      console.log(convertToUppercase("abcdefghijklmnopqrstuvwxyz")); // ABCDEFGHIJKLMNOPQRSTUVWXYZ
+
+      //掛け算のリスト
+      function createList(n) {
+        return Array.from({ length: 9 }, (_, i) => n * (i + 1)).join(" ");
+      }
+
+      console.log(createList(2)); // 2 4 6 8 10 12 14 16 18
+      console.log(createList(3)); // 3 6 9 12 15 18 21 24 27
+      console.log(createList(5)); // 5 10 15 20 25 30 35 40 45
+
+      function canStoreBooks(s) {
+        const [n, d, e] = split(" ").map(Number);
+        return n <= d * e ? "OK" : "NG";
+      }
+
+      console.log(canStoreBooks("400 5 85")); // OK
+      console.log(canStoreBooks("500 4 70")); // NG
+
+      function calculateNumberOfGames(n) {
+        return (n * (n - 1)) / 2;
+      }
+
+console.log(calculateNumberOfGames(4)); // 6
+console.log(calculateNumberOfGames(10)); // 45
+
+function daysOfGoOut(s) {
+  const arr = s.split(" ").map(Number);
+  return arr.filter((n) => n >= 30 && n <= 100).length;
+}
+
+console.log(daysOfGoOut("13 0 15 30 89 100 30")); // 5
+console.log(daysOfGoOut("0 14 18 22 0 2 4")); // 7
+console.log(daysOfGoOut("99 99 99 99 99 99 99")); // 0
+
+//正三角形かどうか
+function isEquilateralTriangle(a, b, c) {
+  return a === b && b === c ? "YES" : "NO";
+}
+console.log(isEquilateralTriangle(3, 3, 3)); // YES
+console.log(isEquilateralTriangle(3, 4, 3)); // NO
+
+
+    </script>
+  </body>
+</html>

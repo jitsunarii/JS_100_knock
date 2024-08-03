@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="jp">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function fibonacci(n) {
+        if (n <= 1) return n;
+        return fibonacci(n - 1) + fibonacci(n - 2);
+      }
+
+      console.log(fibonacci(0)); // 0
+      console.log(fibonacci(1)); // 1
+      console.log(fibonacci(5)); // 5
+      console.log(fibonacci(10)); // 55
+      //文字列を反転
+      function reverseString(str) {
+        //   const reverses = [];
+        //   const str_arr = str.split("");
+        //   for (let i = 0; i < str_arr.length; i++) {
+        //     reverses.unshift(str_arr[i]);
+        //   }
+        //   return reverses.join("");
+        // }
+        return [...str].reverse().join("");
+      }
+      console.log(reverseString("hello")); // "olleh"
+      console.log(reverseString("world")); // "dlrow"
+      console.log(reverseString("JavaScript")); // "tpircSavaJ"
+      //2つの配列のマージとソート
+      function mergeAndSort(arr1, arr2) {
+        const mix_arr = [...arr1, ...arr2];
+        return mix_arr.sort((a, b) => a - b);
+      }
+      console.log(mergeAndSort([3, 1, 4], [2, 5, 6])); // [1, 2, 3, 4, 5, 6]
+      console.log(mergeAndSort([10, 20], [5, 15, 25])); // [5, 10, 15, 20, 25]
+      console.log(mergeAndSort([-1, -2], [1, 2])); // [-2, -1, 1, 2]
+      //重複する要素のカウント
+      function countOccurrences(arr) {
+        return arr.reduce((acc, val) => {
+          acc[val] = (acc[val] || 0) + 1;
+          console.log(acc);
+          return acc;
+        }, {});
+      }
+      console.log(countOccurrences([1, 2, 2, 3, 3, 3])); // {1: 1, 2: 2, 3: 3}
+      console.log(countOccurrences(["a", "b", "a", "c", "a"])); // {a: 3, b: 1, c: 1}
+      console.log(countOccurrences([true, false, true, true])); // {true: 3, false: 1}
+      //素数の判定
+      function isPrime(n) {
+        if (n <= 1) return false;
+        for (let i = 2; i < Math.sqrt(n) + 1; i++) {
+          if (n % i === 0) return false;
+        }
+        return true;
+      }
+
+      console.log(isPrime(2)); // true
+      console.log(isPrime(4)); // false
+      console.log(isPrime(17)); // true
+      console.log(isPrime(18)); // false
+      //最大値と最小値の差
+      function maxMinDifference(arr) {
+        return Math.max(...arr) - Math.min(...arr);
+      }
+      console.log(maxMinDifference([1, 2, 3, 4, 5])); // 4
+      console.log(maxMinDifference([10, 20, 30, 40, 50])); // 40
+      console.log(maxMinDifference([-10, -20, -30, -40, -50])); // 40
+      //回文の判定
+      function isPalindrome(str) {
+        if ([...str].reverse().join("") === str) {
+          return "true";
+        } else {
+          return "false";
+        }
+      }
+      console.log(isPalindrome("madam")); // true
+      console.log(isPalindrome("hello")); // false
+      console.log(isPalindrome("racecar")); // true
+      //メールアドレスの検証
+      let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      console.log(emailPattern.test("example@example.com")); // true
+      console.log(emailPattern.test("example.com")); // false
+      //電話番号の検証
+      let phonePattern = /^\(\d{3}\) \d{3}-\d{4}$/;
+      console.log(phonePattern.test("(123) 456-7890")); // true
+      console.log(phonePattern.test("123-456-7890")); // false
+      //二次元配列の転置
+      function transposeMatrix(matrix) {
+        let transposed = [];
+        for (let i = 0; i < matrix[0].length; i++) {
+          transposed[i] = [];
+          console.log(transposed);
+          for (let j = 0; j < matrix.length; j++) {
+            transposed[i][j] = matrix[j][i];
+            console.log(transposed);
+          }
+        }
+        return transposed;
+        //[matrix[0][0],matrix[1][0],matrix[2][0]]
+      }
+      console.log(
+        transposeMatrix([
+          [1, 2, 3],
+          [4, 5, 6],
+          [7, 8, 9],
+        ])
+      );
+      // [[1, 4, 7], [2, 5, 8], [3, 6, 9]]
+      console.log(
+        transposeMatrix([
+          [1, 2],
+          [3, 4],
+          [5, 6],
+        ])
+      );
+      // [[1, 3, 5], [2, 4, 6]]
+      //平均値の計算
+      function calculateAverage(arr) {
+        return arr.reduce((a, b) => a + b) / arr.length;
+      }
+      console.log(calculateAverage([1, 2, 3, 4, 5])); // 3
+      console.log(calculateAverage([10, 20, 30, 40, 50])); // 30
+      console.log(calculateAverage([3, 7, 1, 9, 5])); // 5
+      //重複する文字の削除
+      function removeDuplicates(str) {
+        console.log(new Set(str));
+        return [...new Set(str)].join("");
+      }
+      console.log(removeDuplicates("hello")); // "helo"
+      console.log(removeDuplicates("world")); // "world"
+      console.log(removeDuplicates("javascript")); // "javscript"
+
+      function sumArray(arr) {
+        return arr.reduce((a, b) => a + b);
+      }
+
+      console.log(sumArray([1, 2, 3, 4])); // 10
+      console.log(sumArray([10, 20, 30])); // 60
+
+      function sumObjectValues(obj) {
+        const key_1 = Object.keys(obj)[0];
+        const key_2 = Object.keys(obj)[1];
+        const key_3 = Object.keys(obj)[2];
+        return obj[key_1] + obj[key_2] + obj[key_3];
+      }
+
+      console.log(sumObjectValues({ a: 1, b: 2, c: 3 })); // 6
+      console.log(sumObjectValues({ x: 10, y: 20, z: 30 })); // 60
+    </script>
+  </body>
+</html>
